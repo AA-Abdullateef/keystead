@@ -1,0 +1,5 @@
+{
+    "private": true,
+    "name": "keystead",
+    "description": "No frontend build step: the console ships hand-written CSS/JS in public/assets."
+}

@@ -1,0 +1,32 @@
+<?php if($paginator->hasPages()): ?>
+<nav class="pager" role="navigation" aria-label="Pagination">
+    <span class="pager-info">Showing <?php echo e($paginator->firstItem()); ?>–<?php echo e($paginator->lastItem()); ?> of <?php echo e($paginator->total()); ?></span>
+    <ul class="pager-list">
+        <?php if($paginator->onFirstPage()): ?>
+            <li class="disabled" aria-disabled="true"><span>&lsaquo; Prev</span></li>
+        <?php else: ?>
+            <li><a href="<?php echo e($paginator->previousPageUrl()); ?>" rel="prev">&lsaquo; Prev</a></li>
+        <?php endif; ?>
+        <?php $__currentLoopData = $elements; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $element): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php if(is_string($element)): ?>
+                <li class="disabled"><span><?php echo e($element); ?></span></li>
+            <?php endif; ?>
+            <?php if(is_array($element)): ?>
+                <?php $__currentLoopData = $element; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $page => $url): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <?php if($page == $paginator->currentPage()): ?>
+                        <li class="active" aria-current="page"><span><?php echo e($page); ?></span></li>
+                    <?php else: ?>
+                        <li><a href="<?php echo e($url); ?>"><?php echo e($page); ?></a></li>
+                    <?php endif; ?>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endif; ?>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <?php if($paginator->hasMorePages()): ?>
+            <li><a href="<?php echo e($paginator->nextPageUrl()); ?>" rel="next">Next &rsaquo;</a></li>
+        <?php else: ?>
+            <li class="disabled" aria-disabled="true"><span>Next &rsaquo;</span></li>
+        <?php endif; ?>
+    </ul>
+</nav>
+<?php endif; ?>
+<?php /**PATH C:\xampp\htdocs\portfolio\keystead\resources\views/pagination/keystead.blade.php ENDPATH**/ ?>
