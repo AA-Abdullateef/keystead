@@ -49,7 +49,7 @@ Demo logins (password `Password123!`, or `DEMO_PASSWORD` from `.env`):
 Console: `http://localhost:8000/login` · API: `http://localhost:8000/api/v1`
 
 ```bash
-php artisan test                  # 89 tests
+php artisan test                  # 116 tests
 php artisan finance:reconcile     # wallet balances vs ledger, distributions vs wallet credits (exit 1 on drift)
 php artisan loans:refresh-overdue # also scheduled daily at 01:00
 ```
@@ -97,7 +97,7 @@ Design notes: [docs/architecture.md](docs/architecture.md) · money rules: [docs
 
 ## Verification
 
-* **113 automated tests** (SQLite in-memory, also re-run against MariaDB): money maths, wallet, investments, profit distribution, loans, API contract, authorization, console workflows, demo seeder, e-mail verification and reset tokens, notifications (faked mailer), audit immutability, ledger/DB guards, idempotency and reconcile tamper detection.
+* **116 automated tests** (SQLite in-memory, also re-run against MariaDB): money maths, wallet, investments, profit distribution, loans, API contract, authorization, console workflows, demo seeder, e-mail verification and reset tokens, notifications (faked mailer), audit immutability, ledger/DB guards, idempotency and reconcile tamper detection.
 * **Concurrency checked on MariaDB** with real parallel processes — `scripts/concurrency-check.sh` (see [docs/security.md](docs/security.md#concurrency)). SQLite cannot prove row locking, so the PHPUnit suite does not claim to.
 * The trigger/CHECK guards (audit and ledger immutability, non-negative balance) were exercised with raw SQL on MariaDB 10.11.
 * Not covered: real SMTP delivery (mail is asserted with Laravel's fake; the `log`/`array` drivers are used locally), a browser E2E suite, load testing, PostgreSQL, real payment/KYC flows (out of scope by design).
