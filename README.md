@@ -9,7 +9,6 @@ admins and managers.
 > "manual deposit" ledger entry. Nothing here is investment advice or a return guarantee.
 
 ![Overview](docs/screenshots/03-overview.png)
-![Profit-preview](docs/screenshots/05-profit-preview.png)
 
 ## What it does
 
@@ -110,11 +109,7 @@ Design notes: [docs/architecture.md](docs/architecture.md) · money rules: [docs
 | Projects & investors | Profit preview | Mortgage loans |
 | ![](docs/screenshots/08-ledger.png) | ![](docs/screenshots/14-investor-financial-profile.png) | ![](docs/screenshots/16-overview-mobile.png) |
 | Ledger | Investor financial profile | Mobile |
-
-More in [docs/screenshots](docs/screenshots).
-
-## License
-
-MIT
 | ![](docs/screenshots/18-audit-trail.png) | ![](docs/screenshots/20-email-investment.png) | ![](docs/screenshots/19-verify-email.png) |
 | Audit trail (admin) | Investment e-mail | E-mail confirmation page |
+
+More in [docs/screenshots](docs/screenshots).
